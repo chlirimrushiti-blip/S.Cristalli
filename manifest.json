@@ -1,0 +1,26 @@
+{
+  "name": "Sara Cristalli - Organizzazione",
+  "short_name": "S. Cristalli",
+  "description": "Tutti i link essenziali di Sara Cristalli Professional Organizer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#f5f4eb",
+  "background_color": "#f5f4eb",
+  "icons": [
+    {
+      "src": "https://placehold.co/192x192/f5f4eb/000000?text=S",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://placehold.co/512x512/f5f4eb/000000?text=S",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://placehold.co/144x144/f5f4eb/000000?text=S",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}

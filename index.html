@@ -1,0 +1,299 @@
+<!DOCTYPE ahtml>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Cristalli - Professional Organizer</title>
+    
+    <!-- Link al Manifest Web (essenziale per PWA/TWA) -->
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Meta tag per il look and feel su Mobile -->
+    <meta name="theme-color" content="#f5f4eb">
+
+    <!-- Stili e Font (Utilizzo di Tailwind CDN per un design pulito) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Importazione dei Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Sfondo pagina chiaro per un buon contrasto con la card */
+            background-color: #f7f9fc; 
+        }
+        
+        /* Stile per l'area del banner (dove andrà l'immagine) */
+        .integrated-logo-header {
+            height: 180px; /* ALTEZZA A 180px per dare più spazio al banner */
+            
+            /* Estende l'area del banner per coprire i bordi laterali e superiori della card (p-6 = 1.5rem) */
+            margin-top: -1.5rem; 
+            margin-left: -1.5rem;
+            margin-right: -1.5rem;
+            
+            /* Assicura che la parte superiore sia arrotondata come il contenitore principale */
+            border-top-left-radius: 0.75rem; /* rounded-xl */
+            border-top-right-radius: 0.75rem;
+            
+            /* Aggiunge una leggera separazione visiva dalla griglia dei bottoni */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+            
+            /* Colore di sfondo della card/area banner (deve corrispondere a .bg-logo-color) */
+            background-color: #f5f4eb;
+            
+            /* Centratura del contenuto (l'immagine) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin-bottom: 1.5rem; 
+            overflow: hidden; 
+        }
+
+        /* Stile di base per la card/bottone */
+        .app-button {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            opacity: 0.95; 
+            min-height: 100px; 
+        }
+        /* Effetto hover/attivo intuitivo */
+        .app-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
+            opacity: 1;
+        }
+        .app-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Colore della card/contenitore principale */
+        .bg-logo-color {
+            background-color: #f5f4eb; 
+        }
+        
+        /* NUOVI GRUPPI DI COLORE GRADUATI (Stessi colori, per coerenza) */
+        /* GRUPPO 1: SOCIAL & SITO UFFICIALE (TONALITÀ BLU/AZZURRO/GRIGIO) */
+        
+        /* Sito Ufficiale (Blu chiaro) */
+        .social-color-1-bg {
+            background-image: linear-gradient(to bottom right, #aed1f1, #cfe2f3);
+            color: #1f2937; /* gray-800 */
+        }
+        
+        /* Instagram (Grigio/Beige - Colore #bab5b1) */
+        .social-color-2-bg {
+            background-image: linear-gradient(to bottom right, #d0cbc7, #bab5b1);
+            color: #1f2937; /* gray-800 */
+        }
+
+        /* TikTok (Grigio scuro/Nero) */
+        .social-color-3-bg {
+            background-image: linear-gradient(to bottom right, #4b5563, #1f2937); /* gray-600 to gray-800 */
+            color: white; 
+        }
+
+        /* YouTube (Pesca/Arancio Chiaro) */
+        .social-color-4-bg {
+            background-image: linear-gradient(to bottom right, #f0d3b6, #e8c29f); 
+            color: #1f2937; /* gray-800 */
+        }
+        
+        /* GRUPPO 2: VENDITA & PRODOTTI (TONALITÀ VERDE/GIALLO/BEIGE) */
+        
+        /* Vetrina Amazon (Azzurro Chiaro) */
+        .product-color-1-bg {
+            background-image: linear-gradient(to bottom right, #f1f6ff, #e2edf8);
+            color: #1f2937; /* gray-800 */
+        }
+
+        /* Il Mio Libro (Verde acqua soft) */
+        .product-color-2-bg {
+            background-image: linear-gradient(to bottom right, #b4dcdc, #89b7b7);
+            color: #1f2937; /* gray-800 */
+        }
+        
+        /* La Mia Agenda (Verde Oliva) */
+        .product-color-3-bg {
+            background-image: linear-gradient(to bottom right, #cfc6b5, #b7a98a);
+            color: #1f2937; /* gray-800 */
+        }
+        
+        /* I Miei Planner (Azzurro-Grigio) */
+        .product-color-4-bg {
+            background-image: linear-gradient(to bottom right, #a6bbd3, #7f9db9);
+            color: #1f2937; /* gray-800 */
+        }
+    </style>
+    <!-- Lucide Icons: un set di icone vettoriali per i pulsanti -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="p-4 sm:p-8 flex justify-center items-center min-h-screen">
+
+    <!-- Contenitore principale (Simula l'area dell'app mobile) -->
+    <div id="app-container" class="w-full max-w-sm bg-logo-color rounded-xl p-6 shadow-2xl">
+        
+        <!-- AREA LOGO E BANNER - Ora con ID e senza onerror nell'HTML -->
+        <div class="integrated-logo-header">
+            <img 
+                id="bannerImage"
+                src="https://i.imgur.com/PugL1l0.png" 
+                alt="Banner Sara Cristalli Professional Organizer"
+                class="h-full w-full object-contain"
+            >
+        </div>
+
+        <!-- Contenitore per i messaggi (simula un alert o una notifica) -->
+        <div id="message-box" class="fixed top-4 left-1/2 -translate-x-1/2 p-3 bg-indigo-600 text-white rounded-lg shadow-xl z-50 transition-opacity duration-300 opacity-0 pointer-events-none">
+            Azione Eseguita!
+        </div>
+
+        <!-- GRIGLIA 2 COLONNE x 4 RIGHE (Totale 8 Pulsanti) -->
+        <div class="grid grid-cols-2 gap-4">
+
+            <!-- RIGA 1: Sito (Col 1) e Vetrina Amazon (Col 2) -->
+            
+            <!-- 1. Sito Ufficiale (Col 1 - Social/Azzurro) -->
+            <button class="app-button social-color-1-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vai al Sito Ufficiale" data-link="https://www.saracristalliprofessionalorganizer.it/">
+                <i data-lucide="link" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">Sito Ufficiale</span>
+            </button>
+
+            <!-- 2. Vetrina Amazon (Col 2 - Prodotti/Azzurro Chiaro) -->
+            <button class="app-button product-color-1-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vai alla Vetrina Amazon" data-link="https://www.amazon.it/shop/professionalorganizer_sara">
+                <i data-lucide="store" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">Vetrina Amazon</span>
+            </button>
+            
+            <!-- RIGA 2: Instagram (Col 1) e Il Mio Libro (Col 2) -->
+
+            <!-- 3. Instagram (Col 1 - Social/Grigio-Beige) -->
+            <button class="app-button social-color-2-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vai su Instagram" data-link="https://www.instagram.com/professionalorganizer_sara/">
+                <i data-lucide="instagram" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">Instagram</span>
+            </button>
+
+            <!-- 4. Il Mio Libro (Col 2 - Prodotti/Verde Acqua soft) -->
+            <button class="app-button product-color-2-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Acquista il Libro" data-link="https://www.amazon.it/dp/8857310930?linkCode=ssc&tag=onamzcristall-21&creativeASIN=8857310930&asc_item-id=amzn1.ideas.IFUUX4DTV5Q7&ref_=aip_sf_list_spv_s_ofs_mixed_d_asin">
+                <i data-lucide="book-open" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">Il Mio Libro</span>
+            </button>
+
+            <!-- RIGA 3: YouTube (Col 1) e La Mia Agenda (Col 2) -->
+
+            <!-- 5. YouTube (Col 1 - Social/Pesca Arancio) -->
+            <button class="app-button social-color-4-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vai su YouTube" data-link="https://www.youtube.com/@saracristallipo">
+                <i data-lucide="youtube" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">YouTube</span>
+            </button>
+
+            <!-- 6. La Mia Agenda (Col 2 - Prodotti/Verde Oliva) -->
+            <button class="app-button product-color-3-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Acquista l'Agenda" data-link="https://www.amazon.it/dp/B0FG14BJQ3?linkCode=ssc&tag=onamzcristall-21&creativeASIN=B0FG14BJQ3&asc_item-id=amzn1.ideas.1VJQZFLFIRL4M&ref_=aip_sf_asn_ofs_d_qv_asin">
+                <i data-lucide="calendar" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">La Mia Agenda</span>
+            </button>
+            
+            <!-- RIGA 4: TikTok (Col 1) e I Miei Planner (Col 2) -->
+
+            <!-- 7. TikTok (Col 1 - Social/Nero) -->
+            <button class="app-button social-color-3-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vai su TikTok" data-link="https://www.tiktok.com/@home_organizer_sara?_r=1&_t=ZN-91qD5eKCZ7u">
+                <i data-lucide="music" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">TikTok</span>
+            </button>
+
+            <!-- 8. I Miei Planner (Col 2 - Prodotti/Azzurro-Grigio) -->
+            <button class="app-button product-color-4-bg p-3 rounded-xl flex flex-col items-center justify-center text-center" data-action="Vedi i Planner" data-link="https://www.amazon.it/shop/professionalorganizer_sara/list/1VJQZFLFIRL4M?ref_=aip_sf_list_spv_ofs_mixed_d">
+                <i data-lucide="clipboard-list" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm font-semibold">I Miei Planner</span>
+            </button>
+
+        </div>
+        <!-- Fine GRIGLIA -->
+
+    </div>
+
+    <script>
+        // Funzione per mostrare un messaggio temporaneo invece di un alert()
+        function showMessage(actionText) {
+            const msgBox = document.getElementById('message-box');
+            msgBox.textContent = actionText;
+            msgBox.style.opacity = '1';
+            msgBox.style.pointerEvents = 'auto';
+
+            // Nasconde il messaggio dopo 2 secondi
+            setTimeout(() => {
+                msgBox.style.opacity = '0';
+                msgBox.style.pointerEvents = 'none';
+            }, 2000);
+        }
+
+        /**
+         * Gestisce l'errore di caricamento dell'immagine del banner, sostituendola con un placeholder.
+         * @param {HTMLImageElement} imageElement - L'elemento immagine che ha fallito.
+         */
+        function handleImageError(imageElement) {
+            // Assegna l'handler dell'errore
+            imageElement.onerror = function() {
+                // Sostituisce l'immagine non caricata con un placeholder che mostra il messaggio di errore
+                imageElement.src = 'https://placehold.co/300x180/f5f4eb/1f2937?text=Errore:+Immagine+Non+Trovata';
+                // IMPORTANTE: Rimuove l'handler per prevenire cicli infiniti se anche il placeholder fallisce
+                imageElement.onerror = null; 
+            };
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inizializza le icone di Lucide
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+
+            // 1. GESTIONE ERRORE BANNER
+            const bannerImage = document.getElementById('bannerImage');
+            if (bannerImage) {
+                // Chiama la funzione di gestione errori
+                handleImageError(bannerImage);
+            }
+            
+            // 2. GESTIONE CLICK BOTTONI
+            const buttons = document.querySelectorAll('.app-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const action = button.getAttribute('data-action');
+                    const link = button.getAttribute('data-link');
+                    
+                    if (link) {
+                        // Apre il link in una nuova scheda (simulando l'apertura di un browser esterno nell'app)
+                        window.open(link, '_blank');
+                        showMessage(action + ' (Aperto nel browser)');
+                    } else {
+                        // Se il link non è definito (non dovrebbe succedere con questa configurazione)
+                        showMessage('Azione non definita');
+                    }
+                });
+            });
+
+            // INIZIO: REGISTRAZIONE DEL SERVICE WORKER (per PWA)
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    // Tenta di registrare il Service Worker dal file service-worker.js
+                    // Usa il percorso './service-worker.js' per coerenza con la root del server
+                    navigator.serviceWorker.register('./service-worker.js')
+                        .then(registration => {
+                            console.log('Service Worker registrato con successo:', registration.scope);
+                        })
+                        .catch(error => {
+                            console.error('Registrazione Service Worker fallita:', error);
+                        });
+                });
+            }
+            // FINE: REGISTRAZIONE DEL SERVICE WORKER
+        });
+    </script>
+</body>
+</html>
