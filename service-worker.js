@@ -5,11 +5,10 @@ const CACHE_NAME = 'sara-cristalli-pwa-v1';
 const urlsToCache = [
     './index.html',
     '/',
-    // Le icone definite nel manifest (utilizziamo i placeholder attuali)
-    'https://placehold.co/192x192/f5f4eb/000000?text=S',
-    'https://placehold.co/512x512/f5f4eb/000000?text=S',
-    'https://placehold.co/144x144/f5f4eb/000000?text=S',
-    // Risorse esterne critiche
+    // Icona ufficiale di Sara Cristalli (importante per il caching PWA)
+    'https://i.imgur.com/b4N6B3l.png', 
+    
+    // RISORSE ESTERNE CORRETTE
     'https://cdn.tailwindcss.com',
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
     'https://unpkg.com/lucide@latest',
