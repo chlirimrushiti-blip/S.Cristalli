@@ -1,21 +1,27 @@
 {
-"name": "Sara Cristalli Professional Organizer",
-"short_name": "Sara Cristalli PO",
-"description": "Sara Cristalli - Professional Organizer: il tuo link rapido a tutti i contenuti.",
-"start_url": "./index.html",
-"display": "standalone",
-"background_color": "#f5f4eb",
-"theme_color": "#f5f4eb",
-"icons": [
-{
-"src": "https://www.google.com/search?q=https://i.imgur.com/q1HjS5u.png",
-"sizes": "192x192",
-"type": "image/png"
-},
-{
-"src": "https://www.google.com/search?q=https://i.imgur.com/q1HjS5u.png",
-"sizes": "512x512",
-"type": "image/png"
+  "name": "Sara Cristalli - Organizzazione",
+  "short_name": "S. Cristalli",
+  "description": "Tutti i link essenziali di Sara Cristalli Professional Organizer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#f5f4eb",
+  "background_color": "#f5f4eb",
+  "icons": [
+    {
+      "src": "https://i.imgur.com/b4N6B3l.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.imgur.com/b4N6B3l.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.imgur.com/b4N6B3l.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
 }
-]
-}
+
