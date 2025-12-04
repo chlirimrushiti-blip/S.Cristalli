@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara Cristalli - Professional Organizer</title>
     
-    <!-- Link al Manifest Web -->
+    <!-- Link al Manifest Web (ORA DEFINISCE LE PROPRIETÀ AVANZATE DELLO SPLASH NATIVO) -->
     <link rel="manifest" href="./manifest.json">
     
     <!-- Meta tag per il look and feel su Mobile -->
+    <!-- Questo colore definisce lo sfondo dello SPLASH SCREEN NATIVO -->
     <meta name="theme-color" content="#f5f4eb">
 
     <!-- Stili e Font (Utilizzo di Tailwind CDN per un design pulito) -->
@@ -43,7 +44,8 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #f5f4eb; /* Colore di sfondo brand */
+            /* Il colore qui deve corrispondere al theme-color per un effetto fluido */
+            background-color: #f5f4eb; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -148,8 +150,8 @@
 </head>
 <body>
 
-    <!-- 1. SPLASH SCREEN: VISIBILE INIZIALMENTE (AGGIUNTA IMMAGINE E TESTO BENVENUTI) -->
-    <div id="splash-screen">
+    <!-- 1. SPLASH SCREEN: VISIBILE INIZIALMENTE (CON IMMAGINE E TESTO BENVENUTI) -->
+    <div id="splash-screen" class="p-4 sm:p-8">
         <!-- IMMAGINE DEL CLIENTE -->
         <img 
             src="https://i.imgur.com/v80gvgQ.png" 
@@ -157,7 +159,7 @@
             class="w-48 h-auto mb-4 rounded-xl shadow-xl object-contain"
         >
         
-        <!-- TESTO BENVENUTI IN GRANDE: AGGIUNTO ID e RIMOZIONE DELLA CLASSE text-[#1f2937] che non funzionava -->
+        <!-- TESTO BENVENUTI IN GRANDE -->
         <h1 id="welcome-title" class="text-3xl font-extrabold mt-2">BENVENUTI</h1>
         
         <!-- Sottotitolo -->
@@ -171,6 +173,7 @@
             
             <!-- AREA LOGO E BANNER -->
             <div class="integrated-logo-header">
+                <!-- IMMAGINE DEL BANNER (QUELLA CON LA CASETTA) RIPRISTINATA -->
                 <img 
                     id="bannerImage"
                     src="https://i.imgur.com/PugL1l0.png" 
@@ -266,7 +269,9 @@
             const splashScreen = document.getElementById('splash-screen');
             const appContent = document.getElementById('app-content');
 
-            // 1. Ritardo di 2 secondi per lo splash screen
+            // 1. Ritardo per lo splash screen CUSTOM
+            // Il tempo qui controlla quanto a lungo appare la foto (dopo che il logo nativo è scomparso)
+            // RIPRISTINATO A 2000MS (2 secondi)
             setTimeout(() => {
                 // Nasconde lo splash screen con un effetto di dissolvenza
                 splashScreen.style.opacity = '0';
@@ -277,7 +282,7 @@
                     appContent.style.opacity = '1'; // Mostra il contenuto dell'app
                     document.body.style.overflow = 'auto'; // Riabilita lo scroll
                 }, 500); // 500ms è la durata della transizione CSS opacity
-            }, 2000); // <-- QUI IMPOSTI LA DURATA DELLO SPLASH SCREEN (2000ms = 2 secondi)
+            }, 2000); // *** TEMPO IMPOSTATO A 2000MS (2 secondi) ***
 
             
             // 2. GESTIONE GENERALE DELL'APP
