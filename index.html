@@ -27,6 +27,14 @@
         }
         
         /* -------------------------------------- */
+        /* STILE PERSONALIZZATO E FORZATO PER IL TESTO BENVENUTI */
+        /* Colore esatto dei bottoni chiari: #1f2937 */
+        #welcome-title {
+            color: #1f2937 !important; /* Uso !important per sovrascrivere qualsiasi altra regola */
+        }
+        /* -------------------------------------- */
+        
+        /* -------------------------------------- */
         /* NUOVI STILI PER LO SPLASH SCREEN */
         /* -------------------------------------- */
         #splash-screen {
@@ -140,12 +148,20 @@
 </head>
 <body>
 
-    <!-- 1. SPLASH SCREEN: VISIBILE INIZIALMENTE -->
+    <!-- 1. SPLASH SCREEN: VISIBILE INIZIALMENTE (AGGIUNTA IMMAGINE E TESTO BENVENUTI) -->
     <div id="splash-screen">
-        <!-- Usa l'icona ufficiale del manifesto per coerenza (AUMENTATA LA DIMENSIONE A w-36 h-36) -->
-        <img src="https://i.imgur.com/b4N6B3l.png" alt="Logo Sara Cristalli" class="w-36 h-36 rounded-full shadow-lg mb-4">
-        <h1 class="text-xl font-bold text-gray-800">Sara Cristalli</h1>
-        <p class="text-gray-600">Professional Organizer</p>
+        <!-- IMMAGINE DEL CLIENTE -->
+        <img 
+            src="https://i.imgur.com/v80gvgQ.png" 
+            alt="Foto di Benvenuto Sara Cristalli" 
+            class="w-48 h-auto mb-4 rounded-xl shadow-xl object-contain"
+        >
+        
+        <!-- TESTO BENVENUTI IN GRANDE: AGGIUNTO ID e RIMOZIONE DELLA CLASSE text-[#1f2937] che non funzionava -->
+        <h1 id="welcome-title" class="text-3xl font-extrabold mt-2">BENVENUTI</h1>
+        
+        <!-- Sottotitolo -->
+        <p class="text-lg font-semibold text-gray-700">Sara Cristalli - Professional Organizer</p>
     </div>
 
     <!-- 2. CONTENUTO PRINCIPALE DELL'APP: NASCOSTO INIZIALMENTE -->
